@@ -1,0 +1,11 @@
+<%@page session="false" %>
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring MVC -HelloWorld</title>
+</head>
+<body>
+<h1>${greeting}</h1>
+</body>
+</html>

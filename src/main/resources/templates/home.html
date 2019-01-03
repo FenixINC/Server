@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Home</h1>
+<p th:text="'username: ' + ${login.username}"></p>
+<p th:text="'password: ' + ${login.password}"></p>
+<a href="/login">Submit another message</a>
+</body>
+</html>
