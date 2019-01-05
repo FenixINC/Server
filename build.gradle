@@ -76,6 +76,7 @@ dependencies {
     implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.4.RELEASE')
     implementation('javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.2')
     implementation('org.webjars:bootstrap:4.2.1')
+//    implementation('org.webjars:jquery:2.1.4')
 
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin')
     implementation('com.vaadin:vaadin-spring-boot-starter')

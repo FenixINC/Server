@@ -2,13 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Home</title>
+    <div th:replace="fragments/header :: header-css"></div>
 </head>
 <body>
-<h1>Home</h1>
-<p th:text="'username: ' + ${login.username}"></p>
-<p th:text="'password: ' + ${login.password}"></p>
-<a href="/login">Submit another message</a>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container">
+    <link rel="stylesheet" th:href="@{/css/home.css}"
+          href="../static/css/home.css"/>
+
+    <!--<p th:text="'username: ' + ${login.username}"></p>-->
+    <!--<p th:text="'password: ' + ${login.password}"></p>-->
+    <a href="/login">Submit another message</a>
+</div>
 </body>
 </html>

@@ -13,6 +13,7 @@ class WebUserController {
 
     private val LOG = LoggerUtils(WebUserController::class.java)
 
+    // LOGIN
     @GetMapping("/login")
     fun doLogin(model: Model): String {
         LOG.info("/login")
@@ -21,7 +22,13 @@ class WebUserController {
     }
 
     @PostMapping("/login")
-    fun home(@ModelAttribute login: Login): String {
+    fun doLogin(@ModelAttribute login: Login): String {
+        return "home"
+    }
+
+    // NAV_BAR
+    @GetMapping("/home")
+    fun doHome(): String {
         return "home"
     }
 }

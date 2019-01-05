@@ -6,22 +6,24 @@
         <link rel="stylesheet" type="text/css"
               href="webjars/bootstrap/4.2.1/css/bootstrap.min.css"/>
 
-        <link rel="stylesheet" th:href="@{/css/main.css}"
-              href="../../static/css/main.css"/>
+        <link rel="stylesheet" th:href="@{/css/header.css}"
+              href="../../static/css/header.css"/>
     </div>
     <title></title>
 </head>
 <body>
 <div th:fragment="header">
     <!-- this is header -->
-    <nav class="navbar-navbar-inverse">
+    <nav class="sticky-top navbar-navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <!--<a class="navbar-home" th:href="@{/}"><h3>Home</h3></a>-->
                 <ul>
-                    <li><a class="active" th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/}">News</a></li>
-                    <li><a th:href="@{/}">Contact Us</a></li>
+                    <li><a th:href="@{home}">Home</a></li>
+                    <li><a th:href="@{pages}">Pages</a></li>
+                    <li><a th:href="@{news}">News</a></li>
+                    <li><a th:href="@{videos}">Videos</a></li>
+                    <li><a th:href="@{search}">Search</a></li>
                     <li style="float:right"><a th:href="@{/}">About</a></li>
                 </ul>
             </div>

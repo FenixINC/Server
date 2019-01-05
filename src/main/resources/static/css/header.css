@@ -1,35 +1,17 @@
-/*head {*/
-/**/
-/*}*/
-
-footer {
-    margin-top: 60px;
-}
-
-h1 {
-    color: #0000FF;
-}
-
-h2 {
-    color: #FF0000;
-}
-
-h3 {
-    color: #FFFFFF;
-}
-
-/* header */
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    position: sticky;
+    top: 0;
 }
 
 li {
     float: left;
     border-right: 1px solid #bbb;
+    color: white;
 }
 
 li:last-child {
@@ -44,15 +26,8 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
-    background-color: #111;
-}
-/* end header */
-
-.active {
+li a:hover, .dropdown:hover .dropbtn {
     background-color: #4CAF50;
-}
-
-.navbar-navbar-inverse {
-    /*background-color: grey;*/
+    text-decoration: none;
+    color: white;
 }

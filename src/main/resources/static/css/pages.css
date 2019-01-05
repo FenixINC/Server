@@ -1,0 +1,9 @@
+p {
+    color: blue;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+th {
+    /*display: inline-block;*/
+}

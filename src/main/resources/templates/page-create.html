@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Person</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Create a Page:</h1>
+
+<div class="container">
+    <!--<link rel="stylesheet" type="text/css"-->
+          <!--href="webjars/bootstrap/4.2.1/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" th:href="@{/css/pages.css}"-->
+          <!--href="../static/css/pages.css"/>-->
+    <form th:action="@{/page/create}"
+          th:object="${formPage}" method="POST">
+        Title:
+        <label>
+            <input type="text" th:field="*{title}"/>
+        </label>
+        <br/>
+        <br/>
+        <input type="submit" value="Create"/>
+    </form>
+</div>
+
+</body>
+</html>
