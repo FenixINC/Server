@@ -19,9 +19,11 @@
     <link rel="stylesheet" th:href="@{/css/pages.css}"
           href="../static/css/pages.css"/>
 
+    <!-- CREATE PAGE: -->
     <a class="btn btn-primary" th:href="@{/page/create}">Create Page</a>
     <br/><br/>
 
+    <!-- TABLE WITH PAGES: -->
     <div>
         <table class="table table-bordered">
             <thead>
@@ -32,34 +34,37 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="page : ${pageList}">
+            <tr th:each="page,rowStat : *{pageList}">
                 <td width="5%" th:utext="${page.id}"></td>
                 <td width="75%" th:utext="${page.title}"></td>
                 <td width="20%">
                     <button type="button" class="btn btn-primary" th:text="Edit"></button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete"
-                            th:text="Delete"></button>
+                    <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete"
+                       th:attr="data-target='#modal-delete'+${page.id}"
+                       th:text="Delete"></a>
+
+                    <!-- MODAL DELETE -->
+                    <div class="modal modal-delete fade in" th:id="modal-delete+${page.id }">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h3>Are you sure?</h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            id="btn-close" th:text="Close"></button>
+                                    <a type="button" class="btn btn-outline btn-danger"
+                                       th:href="@{/page/delete/{id}(id=${page.id})}" th:text="Yes"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-
-    <!-- Modal Delete -->
-    <div class="modal fade" id="modal-delete">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Are you sure?</h4>
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+
 </body>
 </html>
