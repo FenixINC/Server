@@ -7,7 +7,7 @@ import javax.persistence.*
 @Data
 @Entity
 @Table(name = "tblUser", schema = "server")
-class User() {
+class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @GenericGenerator(name = "increment", strategy = "increment")

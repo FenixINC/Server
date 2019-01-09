@@ -8,7 +8,6 @@ import javax.persistence.*
 @Entity
 @Table(name = "tblPage", schema = "server")
 class Page {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @GenericGenerator(name = "increment", strategy = "increment")

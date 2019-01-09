@@ -2,6 +2,7 @@ package com.server.server.controller
 
 import com.server.server.entity.Page
 import com.server.server.extentions.TextUtils
+import com.server.server.service.PageService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -10,17 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 
 @Controller
-class WebPageController {
+class WebPageController(private val mService: PageService) {
 
-    private val mPageList = ArrayList<Page>()
-
+    // Get Pages:
     @GetMapping("/pages")
     fun doPages(model: Model): String {
-        model.addAttribute("pageList", mPageList)
-        val tmpPage1 = Page()
-        tmpPage1.id = 1
-        tmpPage1.title = "tmp_title_1"
-        mPageList.add(tmpPage1)
+        model.addAttribute("pageList", mService.getList())
         return "pages"
     }
 
@@ -37,23 +33,26 @@ class WebPageController {
         if (!TextUtils.isEmpty(page.title)) {
             val newPage = Page()
             newPage.title = page.title
-            mPageList.add(newPage)
+            mService.pageCreate(newPage)
             return "redirect:/pages"
         }
         return "/page/create"
     }
 
-    // Page Delete:
-    @GetMapping("/page/delete/{id}")
-    fun doPageDelete(model: Model, @PathVariable("id") id: Long): String {
-        //TODO: implement delete Page
-
+    // Page Update:
+    @GetMapping("page/update/{id}/{title}")
+    fun doPageUpdate(
+            @PathVariable("id") id: Long,
+            @PathVariable("title") title: String
+    ): String {
+        mService.pageUpdate(id, title)
         return "redirect:/pages"
     }
 
-//    @PostMapping("/page/delete/{id}")
-//    fun doPageDelete(@PathVariable("id") id: Long, @ModelAttribute("page") page: Page, model: Model): String {
-//        model.addAttribute("formPageDelete", page)
-//        return "redirect:/pages"
-//    }
+    // Page Delete:
+    @GetMapping("/page/delete/{id}")
+    fun doPageDelete(model: Model, @PathVariable("id") id: Long): String {
+        mService.pageDelete(id)
+        return "redirect:/pages"
+    }
 }
