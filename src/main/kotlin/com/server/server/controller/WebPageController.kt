@@ -40,11 +40,10 @@ class WebPageController(private val mService: PageService) {
     }
 
     // Page Update:
-    @GetMapping("page/update/{id}/{title}")
+    @GetMapping("/page/update/{id}/{title}")
     fun doPageUpdate(
             @PathVariable("id") id: Long,
-            @PathVariable("title") title: String
-    ): String {
+            @PathVariable("title") title: String): String {
         mService.pageUpdate(id, title)
         return "redirect:/pages"
     }

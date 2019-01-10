@@ -7,4 +7,5 @@ interface PageService {
     fun pageUpdate(id: Long, title: String)
     fun pageDelete(id: Long)
     fun getList(): List<Page>
+    fun getPage(id: Long): Page
 }

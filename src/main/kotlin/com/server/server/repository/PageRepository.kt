@@ -9,9 +9,6 @@ import javax.transaction.Transactional
 
 interface PageRepository : JpaRepository<Page, Long> {
 
-    @Query("SELECT page FROM Page page")
-    fun getList(): List<Page>
-
     @Modifying
     @Transactional
     @Query("UPDATE Page page SET page.title = :title WHERE page.id = :id")
@@ -23,5 +20,11 @@ interface PageRepository : JpaRepository<Page, Long> {
     @Modifying
     @Transactional
     @Query("DELETE FROM Page page WHERE page.id = :id")
-    fun pageDeleteById(@Param("id") id: Long)
+    fun pageDelete(@Param("id") id: Long)
+
+    @Query("SELECT page FROM Page page WHERE page.id = :id")
+    fun getPage(id: Long): Page
+
+    @Query("SELECT page FROM Page page")
+    fun getList(): List<Page>
 }

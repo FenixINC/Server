@@ -11,15 +11,19 @@ class PageServiceImpl(@Autowired private val mRepository: PageRepository) : Page
         mRepository.saveAndFlush(page)
     }
 
-    override fun getList(): List<Page> {
-        return mRepository.getList()
-    }
-
     override fun pageUpdate(id: Long, title: String) {
         mRepository.pageUpdate(id, title)
     }
 
     override fun pageDelete(id: Long) {
-        mRepository.pageDeleteById(id)
+        mRepository.pageDelete(id)
+    }
+
+    override fun getList(): List<Page> {
+        return mRepository.getList()
+    }
+
+    override fun getPage(id: Long): Page {
+        return mRepository.getPage(id)
     }
 }
